@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Calc {
     public static void calc(Scanner input) {
         final int maxValueCoefficient = 100;
-        final int actionValueCoefficient = 100;
+        final int actionValueCoefficient = 3;
         String playerName = "";
         String playerAnswer;
         String correctAnswer = "";

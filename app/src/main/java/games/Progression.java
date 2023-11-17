@@ -6,7 +6,7 @@ public class Progression {
     public static void progression(Scanner input) {
         final int maxValueCoefficient = 50;
         final int maxCountCoefficient = 10;
-        final int maxStepCoefficient = 100;
+        final int maxStepCoefficient = 10;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;
