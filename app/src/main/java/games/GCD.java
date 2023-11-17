@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class GCD {
     public static void gcd(Scanner input) {
-        String playerName = "", playerAnswer, correctAnswer;
+        String playerName = "";
+        String playerAnswer;
+        String correctAnswer;
         playerName = Cli.cli(input, playerName);
         System.out.println("Find the greatest common divisor of given numbers.");
-        int numberFirst, numberSecond, counter = 0;
+        int numberFirst;
+        int numberSecond;
+        int counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
             numberFirst = (int) (Math.random() * 30);

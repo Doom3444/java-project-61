@@ -4,10 +4,16 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progression(Scanner input) {
-        String playerName = "", playerAnswer, correctAnswer;
+        String playerName = "";
+        String playerAnswer;
+        String correctAnswer;
         playerName = Cli.cli(input, playerName);
         System.out.println("What number is missing in the progression?");
-        int firstNumber, counter = 0, countNumbers, missingNumber, stepOfProgression;
+        int firstNumber;
+        int counter = 0;
+        int countNumbers;
+        int missingNumber;
+        int stepOfProgression;
         boolean progress = true;
         while (counter < 3 && progress) {
             firstNumber = (int) (Math.random() * 50);

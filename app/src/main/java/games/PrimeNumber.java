@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class PrimeNumber {
     public static void primeNumber(Scanner input) {
-        String playerName = "", playerAnswer, correctAnswer;
+        String playerName = "";
+        String playerAnswer;
+        String correctAnswer;
         playerName = Cli.cli(input, playerName);
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int number, counter = 0;
+        int number;
+        int counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
             number = (int) (Math.random() * 100);

@@ -4,15 +4,23 @@ import java.util.Scanner;
 
 public class Calc {
     public static void calc(Scanner input) {
-        String playerName = "", playerAnswer, correctAnswer = "", actionString = "";
+        final int maxValueCoefficient = 100;
+        final int actionValueCoefficient = 100;
+        String playerName = "";
+        String playerAnswer;
+        String correctAnswer = "";
+        String actionString = "";
         playerName = Cli.cli(input, playerName);
         System.out.println("What is the result of the expression?");
-        int numberFirst, numberSecond, counter = 0, actionInt;
+        int numberFirst;
+        int numberSecond;
+        int counter = 0;
+        int actionInt;
         boolean progress = true;
         while (counter < 3 && progress) {
-            numberFirst = (int) (Math.random() * 20);
-            numberSecond = (int) (Math.random() * 20);
-            actionInt = (int) (Math.random() * 3);
+            numberFirst = (int) (Math.random() * maxValueCoefficient);
+            numberSecond = (int) (Math.random() * maxValueCoefficient);
+            actionInt = (int) (Math.random() * actionValueCoefficient);
             if (actionInt == 0) {
                 correctAnswer = Integer.toString(numberFirst + numberSecond);
                 actionString = "+";
