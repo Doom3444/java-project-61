@@ -6,6 +6,7 @@ public class Calc {
     public static void calc(Scanner input) {
         final int maxValueCoefficient = 100;
         final int actionValueCoefficient = 3;
+        final int maxTriesCount = 3;
         String playerName = "";
         String playerAnswer;
         String correctAnswer = "";
@@ -17,7 +18,7 @@ public class Calc {
         int counter = 0;
         int actionInt;
         boolean progress = true;
-        while (counter < 3 && progress) {
+        while (counter < maxTriesCount && progress) {
             numberFirst = (int) (Math.random() * maxValueCoefficient);
             numberSecond = (int) (Math.random() * maxValueCoefficient);
             actionInt = (int) (Math.random() * actionValueCoefficient);
@@ -35,7 +36,7 @@ public class Calc {
             }
             System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
             counter++;
         }
     }

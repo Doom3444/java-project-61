@@ -1,12 +1,12 @@
 package games;
 
 public class TemplateAnswer {
-    public static boolean answer(String playerName, String correctAnswer, String playerAnswer, int counter) {
-        if (playerAnswer.equals(correctAnswer) && counter < 2) {
+    public static boolean answer(String playerName, String correctAnswer, String playerAnswer, int counter, final int maxTries) {
+        if (playerAnswer.equals(correctAnswer) && counter < maxTries - 1) {
             System.out.println("Correct!");
             return true;
         }
-        if (playerAnswer.equals(correctAnswer) && counter == 2) {
+        if (playerAnswer.equals(correctAnswer) && counter == maxTries - 1) {
             System.out.println("Correct!");
             System.out.println("Congratulations, " + playerName + "!");
             return true;

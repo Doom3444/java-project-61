@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progression(Scanner input) {
+        final int maxTriesCount = 3;
         final int maxValueCoefficient = 50;
         final int maxCountCoefficient = 10;
         final int maxStepCoefficient = 10;
@@ -18,7 +19,7 @@ public class Progression {
         int missingNumber;
         int stepOfProgression;
         boolean progress = true;
-        while (counter < 3 && progress) {
+        while (counter < maxTriesCount && progress) {
             firstNumber = (int) (Math.random() * maxValueCoefficient);
             stepOfProgression = (int) (Math.random() * maxStepCoefficient);
             countNumbers = (int) (6 + Math.random() * maxCountCoefficient);
@@ -41,7 +42,7 @@ public class Progression {
             }
             System.out.print("Your answer: ");
             playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
             counter++;
         }
     }

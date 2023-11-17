@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class GCD {
     public static void gcd(Scanner input) {
+        final int maxTriesCount = 3;
         final int maxValueCoefficient = 100;
         String playerName = "";
         String playerAnswer;
@@ -14,13 +15,13 @@ public class GCD {
         int numberSecond;
         int counter = 0;
         boolean progress = true;
-        while (counter < 3 && progress) {
+        while (counter < maxTriesCount && progress) {
             numberFirst = (int) (Math.random() * maxValueCoefficient);
             numberSecond = (int) (Math.random() * maxValueCoefficient);
             correctAnswer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
             System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
             counter++;
         }
     }
