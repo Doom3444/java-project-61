@@ -6,7 +6,7 @@ public class PrimeNumber {
     public static void primeNumber(Scanner input) {
         String playerName = "", playerAnswer, correctAnswer;
         playerName = Cli.cli(input, playerName);
-        System.out.println("Answer 'yes' if given number is prime, otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if given number is prime. otherwise answer 'no'.");
         int number, counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
