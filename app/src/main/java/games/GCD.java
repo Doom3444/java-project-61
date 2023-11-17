@@ -1,31 +1,23 @@
 package games;
+import hexlet.code.TemplateAnswer;
+
 import java.util.Scanner;
 
 public class GCD {
     public static void gcd(Scanner input) {
-        String playerName = "";
+        String playerName = "", playerAnswer, correctAnswer;
         playerName = Cli.cli(input, playerName);
         System.out.println("Find the greatest common divisor of given numbers.");
-        int numberFirst, numberSecond, i;
-        String playerAnswer, correctAnswer = "";
-        for (i = 0; i < 3; i++) {
+        int numberFirst, numberSecond, counter = 0;
+        boolean progress = true;
+        while (counter < 3 && progress) {
             numberFirst = (int) (Math.random() * 100);
             numberSecond = (int) (Math.random() * 100);
             correctAnswer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
-            System.out.println("Question: " + numberFirst + " " + numberSecond);
-            System.out.print("Your answer: ");
+            System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
-            if (playerAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            }
-            else {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + playerName + "!");
-                break;
-            }
-        }
-        if (i == 3) {
-            System.out.println("Congratulations, " + playerName + "!");
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            counter++;
         }
     }
     public static int gcdOfNumbers(int a, int b) {

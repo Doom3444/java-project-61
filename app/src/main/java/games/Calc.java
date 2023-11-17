@@ -1,14 +1,16 @@
 package games;
+import hexlet.code.TemplateAnswer;
+
 import java.util.Scanner;
 
 public class Calc {
     public static void calc(Scanner input) {
-        String playerName = "";
+        String playerName = "", playerAnswer, correctAnswer = "", actionString = "";
         playerName = Cli.cli(input, playerName);
         System.out.println("What is the result of the expression?");
-        int numberFirst, numberSecond, i, actionInt;
-        String playerAnswer, correctAnswer = "", actionString = "";
-        for (i = 0; i < 3; i++) {
+        int numberFirst, numberSecond, counter = 0, actionInt;
+        boolean progress = true;
+        while (counter < 3 && progress) {
             numberFirst = (int) (Math.random() * 20);
             numberSecond = (int) (Math.random() * 20);
             actionInt = (int) (Math.random() * 3);
@@ -24,20 +26,10 @@ public class Calc {
                 correctAnswer = Integer.toString(numberFirst - numberSecond);
                 actionString = "-";
             }
-            System.out.println("Question: " + numberFirst + " " + actionString + " " + numberSecond);
-            System.out.print("Your answer: ");
+            System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
-            if (playerAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            }
-            else {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + playerName + "!");
-                break;
-            }
-        }
-        if (i == 3) {
-            System.out.println("Congratulations, " + playerName + "!");
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            counter++;
         }
     }
 }

@@ -1,30 +1,22 @@
 package games;
+import hexlet.code.TemplateAnswer;
+
 import java.util.Scanner;
 
 public class PrimeNumber {
     public static void primeNumber(Scanner input) {
-        String playerName = "";
+        String playerName = "", playerAnswer, correctAnswer;
         playerName = Cli.cli(input, playerName);
         System.out.println("Answer 'yes' if the number is prime, otherwise answer 'no'.");
-        int number, i;
-        String playerAnswer, correctAnswer;
-        for (i = 0; i < 3; i++) {
+        int number, counter = 0;
+        boolean progress = true;
+        while (counter < 3 && progress) {
             number = (int) (Math.random() * 100);
             correctAnswer = prime(number) ? "yes" : "no";
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
+            System.out.print("Question: " + number + "\nYour answer: ");
             playerAnswer = input.next();
-            if (playerAnswer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            }
-            else {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + playerName + "!");
-                break;
-            }
-        }
-        if (i == 3) {
-            System.out.println("Congratulations, " + playerName + "!");
+            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter);
+            counter++;
         }
     }
     public static boolean prime(int a) {
