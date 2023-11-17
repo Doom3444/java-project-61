@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class PrimeNumber {
     public static void primeNumber(Scanner input) {
+        final int maxValueCoefficient = 100;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;
@@ -13,7 +14,7 @@ public class PrimeNumber {
         int counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
-            number = (int) (Math.random() * 100);
+            number = (int) (Math.random() * maxValueCoefficient);
             correctAnswer = prime(number) ? "yes" : "no";
             System.out.print("Question: " + number + "\nYour answer: ");
             playerAnswer = input.next();

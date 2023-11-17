@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class GCD {
     public static void gcd(Scanner input) {
+        final int maxValueCoefficient = 100;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;
@@ -14,8 +15,8 @@ public class GCD {
         int counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
-            numberFirst = (int) (Math.random() * 30);
-            numberSecond = (int) (Math.random() * 30);
+            numberFirst = (int) (Math.random() * maxValueCoefficient);
+            numberSecond = (int) (Math.random() * maxValueCoefficient);
             correctAnswer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
             System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
