@@ -7,6 +7,7 @@ public class Progression {
         final int maxTriesCount = 3;
         final int maxValueCoefficient = 50;
         final int maxCountCoefficient = 10;
+        final int minCountCoefficient = 6;
         final int maxStepCoefficient = 10;
         String playerName = "";
         String playerAnswer;
@@ -22,7 +23,7 @@ public class Progression {
         while (counter < maxTriesCount && progress) {
             firstNumber = (int) (Math.random() * maxValueCoefficient);
             stepOfProgression = (int) (Math.random() * maxStepCoefficient);
-            countNumbers = (int) (6 + Math.random() * maxCountCoefficient);
+            countNumbers = (int) (minCountCoefficient + Math.random() * maxCountCoefficient);
             missingNumber = (int) (Math.random() * countNumbers);
             correctAnswer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
             System.out.print("Question: ");

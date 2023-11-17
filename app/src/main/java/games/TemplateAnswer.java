@@ -1,7 +1,11 @@
 package games;
 
 public class TemplateAnswer {
-    public static boolean answer(String playerName, String correctAnswer, String playerAnswer, int counter, final int maxTries) {
+    public static boolean answer(String playerName,
+                                 String correctAnswer,
+                                 String playerAnswer,
+                                 int counter,
+                                 final int maxTries) {
         if (playerAnswer.equals(correctAnswer) && counter < maxTries - 1) {
             System.out.println("Correct!");
             return true;
