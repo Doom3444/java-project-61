@@ -1,4 +1,4 @@
-package hexlet.code;
+package games;
 
 public class TemplateAnswer {
     public static boolean answer(String playerName, String correctAnswer, String playerAnswer, int counter) {

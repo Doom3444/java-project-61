@@ -1,5 +1,4 @@
 package games;
-import hexlet.code.TemplateAnswer;
 
 import java.util.Scanner;
 

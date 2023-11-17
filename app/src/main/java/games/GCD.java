@@ -1,5 +1,4 @@
 package games;
-import hexlet.code.TemplateAnswer;
 
 import java.util.Scanner;
 
@@ -11,8 +10,8 @@ public class GCD {
         int numberFirst, numberSecond, counter = 0;
         boolean progress = true;
         while (counter < 3 && progress) {
-            numberFirst = (int) (Math.random() * 100);
-            numberSecond = (int) (Math.random() * 100);
+            numberFirst = (int) (Math.random() * 30);
+            numberSecond = (int) (Math.random() * 30);
             correctAnswer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
             System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
             playerAnswer = input.next();
