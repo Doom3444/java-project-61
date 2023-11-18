@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progression(Scanner input, int maxTriesCount) {
-        final int maxValueCoefficient = 50, maxCountCoefficient = 10, minCountCoefficient = 6, maxStepCoefficient = 10;
+        final int maxValueCoefficient = 50;
+        final int maxCountCoefficient = 10;
+        final int minCountCoefficient = 6;
+        final int maxStepCoefficient = 10;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;
