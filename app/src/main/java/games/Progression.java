@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Progression {
     public static void progression(Scanner input, final int maxTriesCount) {
-        final int maxValueCoefficient = 50;
-        final int maxCountCoefficient = 10;
-        final int minCountCoefficient = 6;
-        final int maxStepCoefficient = 10;
+        final int maxValueCoefficient = 50,
+                maxCountCoefficient = 10,
+                minCountCoefficient = 6,
+                maxStepCoefficient = 10;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;
@@ -26,15 +26,16 @@ public class Progression {
             missingNumber = (int) (Math.random() * countNumbers);
             correctAnswer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
             System.out.print("Question: ");
-            conclusionQuestion(countNumbers, missingNumber, firstNumber, stepOfProgression);
+            for (int j = 0; j < countNumbers; j++) {
+                conclusionQuestion(countNumbers, missingNumber, firstNumber, stepOfProgression, j);
+            }
             System.out.print("Your answer: ");
             playerAnswer = input.next();
             progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
             counter++;
         }
     }
-    public static void conclusionQuestion(int countNumbers, int missingNumber, int firstNumber, int step) {
-        for (int j = 0; j < countNumbers; j++) {
+    public static void conclusionQuestion(int countNumbers, int missingNumber, int firstNumber, int step, int j) {
             if (j == countNumbers - 1 && j == missingNumber) {
                 System.out.println("..");
             }
@@ -47,6 +48,5 @@ public class Progression {
             if (j != countNumbers - 1 && j != missingNumber) {
                 System.out.print((firstNumber + j * step) + " ");
             }
-        }
     }
 }
