@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        final int maxTriesCount = 3;
+        int maxTriesCount = 3;
         Scanner input = new Scanner(System.in);
         String playerChoice;
         System.out.print("""

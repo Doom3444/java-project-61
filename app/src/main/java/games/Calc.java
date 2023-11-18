@@ -3,7 +3,7 @@ package games;
 import java.util.Scanner;
 
 public class Calc {
-    public static void calc(Scanner input, final int maxTriesCount) {
+    public static void calc(Scanner input, int maxTriesCount) {
         final int maxValueCoefficient = 100;
         final int actionValueCoefficient = 3;
         String playerName = "";

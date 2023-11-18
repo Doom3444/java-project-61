@@ -3,7 +3,7 @@ package games;
 import java.util.Scanner;
 
 public class PrimeNumber {
-    public static void primeNumber(Scanner input, final int maxTriesCount) {
+    public static void primeNumber(Scanner input, int maxTriesCount) {
         final int maxValueCoefficient = 100;
         String playerName = "";
         String playerAnswer;
