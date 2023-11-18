@@ -5,7 +5,7 @@ public class TemplateAnswer {
                                  String correctAnswer,
                                  String playerAnswer,
                                  int counter,
-                                 final int maxTries) {
+                                 int maxTries) {
         if (playerAnswer.equals(correctAnswer) && counter < maxTries - 1) {
             System.out.println("Correct!");
             return true;
