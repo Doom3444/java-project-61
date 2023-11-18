@@ -3,8 +3,7 @@ package games;
 import java.util.Scanner;
 
 public class Progression {
-    public static void progression(Scanner input) {
-        final int maxTriesCount = 3;
+    public static void progression(Scanner input, final int maxTriesCount) {
         final int maxValueCoefficient = 50;
         final int maxCountCoefficient = 10;
         final int minCountCoefficient = 6;
@@ -27,24 +26,27 @@ public class Progression {
             missingNumber = (int) (Math.random() * countNumbers);
             correctAnswer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
             System.out.print("Question: ");
-            for (int j = 0; j < countNumbers; j++) {
-                if (j == countNumbers - 1 && j == missingNumber) {
-                    System.out.println("..");
-                }
-                if (j == countNumbers - 1 && j != missingNumber) {
-                    System.out.println((firstNumber + j * stepOfProgression));
-                }
-                if (j != countNumbers - 1 && j == missingNumber) {
-                    System.out.print(".. ");
-                }
-                if (j != countNumbers - 1 && j != missingNumber) {
-                    System.out.print((firstNumber + j * stepOfProgression) + " ");
-                }
-            }
+            conclusionQuestion(countNumbers, missingNumber, firstNumber, stepOfProgression);
             System.out.print("Your answer: ");
             playerAnswer = input.next();
             progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
             counter++;
+        }
+    }
+    public static void conclusionQuestion(int countNumbers, int missingNumber, int firstNumber, int step) {
+        for (int j = 0; j < countNumbers; j++) {
+            if (j == countNumbers - 1 && j == missingNumber) {
+                System.out.println("..");
+            }
+            if (j == countNumbers - 1 && j != missingNumber) {
+                System.out.println((firstNumber + j * step));
+            }
+            if (j != countNumbers - 1 && j == missingNumber) {
+                System.out.print(".. ");
+            }
+            if (j != countNumbers - 1 && j != missingNumber) {
+                System.out.print((firstNumber + j * step) + " ");
+            }
         }
     }
 }

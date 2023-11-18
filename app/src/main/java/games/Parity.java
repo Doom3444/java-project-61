@@ -3,9 +3,8 @@ package games;
 import java.util.Scanner;
 
 public class Parity {
-    public static void parity(Scanner input) {
+    public static void parity(Scanner input, final int maxTriesCount) {
         final int maxValueCoefficient = 100;
-        final int maxTriesCount = 3;
         String playerName = "";
         String playerAnswer;
         String correctAnswer;

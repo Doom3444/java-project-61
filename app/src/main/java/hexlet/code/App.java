@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        final int maxTriesCount = 3;
         Scanner input = new Scanner(System.in);
         String playerChoice;
         System.out.print("""
@@ -26,19 +27,19 @@ public class App {
             Cli.cli(input);
         }
         if (playerChoice.equals("2")) {
-            Parity.parity(input);
+            Parity.parity(input, maxTriesCount);
         }
         if (playerChoice.equals("3")) {
-            Calc.calc(input);
+            Calc.calc(input, maxTriesCount);
         }
         if (playerChoice.equals("4")) {
-            GCD.gcd(input);
+            GCD.gcd(input, maxTriesCount);
         }
         if (playerChoice.equals("5")) {
-            Progression.progression(input);
+            Progression.progression(input, maxTriesCount);
         }
         if (playerChoice.equals("6")) {
-            PrimeNumber.primeNumber(input);
+            PrimeNumber.primeNumber(input, maxTriesCount);
         }
         input.close();
     }
