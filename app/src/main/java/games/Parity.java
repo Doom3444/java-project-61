@@ -1,7 +1,7 @@
 package games;
 
 public class Parity {
-    public static final int maxValueCoefficient = 100;
+    public static int maxValueCoefficient = 100;
     public static String parity() {
         String answer;
         int number;

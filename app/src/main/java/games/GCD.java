@@ -1,7 +1,7 @@
 package games;
 
 public class GCD {
-    public static final int maxValueCoefficient = 100;
+    public static int maxValueCoefficient = 100;
     public static String gcd() {
         String answer;
         int numberFirst;

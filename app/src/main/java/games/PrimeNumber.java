@@ -1,7 +1,7 @@
 package games;
 
 public class PrimeNumber {
-    public static final int maxValueCoefficient = 100;
+    public static int maxValueCoefficient = 100;
     public static String primeNumber() {
         String answer;
         int number;

@@ -8,7 +8,7 @@ import games.Progression;
 import java.util.Scanner;
 
 public class App {
-    public static final int maxTriesCount = 3;
+    public static int maxTriesCount = 3;
     public static void main(String[] args) {
         String playerName;
         String playerAnswer;

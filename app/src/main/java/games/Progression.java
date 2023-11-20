@@ -1,10 +1,10 @@
 package games;
 
 public class Progression {
-    public static final int maxValueCoefficient = 50;
-    public static final int maxCountCoefficient = 10;
-    public static final int minCountCoefficient = 6;
-    public static final int maxStepCoefficient = 10;
+    public static int maxValueCoefficient = 50;
+    public static int maxCountCoefficient = 10;
+    public static int minCountCoefficient = 6;
+    public static int maxStepCoefficient = 10;
     public static String progression() {
         String answer;
         int firstNumber;

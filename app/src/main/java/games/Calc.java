@@ -1,8 +1,8 @@
 package games;
 
 public class Calc {
-    public static final int maxValueCoefficient = 100;
-    public static final int actionValueCoefficient = 3;
+    public static int maxValueCoefficient = 100;
+    public static int actionValueCoefficient = 3;
     public static String calc() {
         String answer;
         String actionString;
