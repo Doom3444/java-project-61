@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'application'
     id 'checkstyle'
 }
@@ -20,12 +19,12 @@ test {
     useJUnitPlatform()
 }
 
-application {
-    mainClass = 'hexlet.code.App'
-}
-
 compileJava {
     options.release = 20
+}
+
+application {
+    mainClass = 'hexlet.code.App'
 }
 
 run {
