@@ -1,33 +1,21 @@
 package games;
 
-import java.util.Scanner;
-
 public class Calc {
-    public static void calc(Scanner input, int maxTriesCount) {
-        final int maxValueCoefficient = 100;
-        final int actionValueCoefficient = 3;
-        String playerName = "";
-        String playerAnswer;
-        String correctAnswer;
+    public static final int maxValueCoefficient = 100;
+    public static final int actionValueCoefficient = 3;
+    public static String calc() {
+        String answer;
         String actionString;
-        playerName = Cli.cli(input, playerName);
-        System.out.println("What is the result of the expression?");
         int numberFirst;
         int numberSecond;
-        int counter = 0;
         int actionInt;
-        boolean progress = true;
-        while (counter < maxTriesCount && progress) {
-            numberFirst = (int) (Math.random() * maxValueCoefficient);
-            numberSecond = (int) (Math.random() * maxValueCoefficient);
-            actionInt = (int) (Math.random() * actionValueCoefficient);
-            actionString = action(actionInt);
-            correctAnswer = correctAnswer(actionString, numberFirst, numberSecond);
-            System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
-            playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
-            counter++;
-        }
+        numberFirst = (int) (Math.random() * maxValueCoefficient);
+        numberSecond = (int) (Math.random() * maxValueCoefficient);
+        actionInt = (int) (Math.random() * actionValueCoefficient);
+        actionString = action(actionInt);
+        answer = correctAnswer(actionString, numberFirst, numberSecond);
+        System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
+        return answer;
     }
     public static String action(int action) {
         if (action == 0) {

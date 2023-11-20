@@ -1,28 +1,16 @@
 package games;
 
-import java.util.Scanner;
-
 public class GCD {
-    public static void gcd(Scanner input, int maxTriesCount) {
-        final int maxValueCoefficient = 100;
-        String playerName = "";
-        String playerAnswer;
-        String correctAnswer;
-        playerName = Cli.cli(input, playerName);
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static final int maxValueCoefficient = 100;
+    public static String gcd() {
+        String answer;
         int numberFirst;
         int numberSecond;
-        int counter = 0;
-        boolean progress = true;
-        while (counter < maxTriesCount && progress) {
-            numberFirst = (int) (Math.random() * maxValueCoefficient);
-            numberSecond = (int) (Math.random() * maxValueCoefficient);
-            correctAnswer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
-            System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
-            playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
-            counter++;
-        }
+        numberFirst = (int) (Math.random() * maxValueCoefficient);
+        numberSecond = (int) (Math.random() * maxValueCoefficient);
+        answer = Integer.toString(gcdOfNumbers(numberFirst, numberSecond));
+        System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
+        return answer;
     }
     public static int gcdOfNumbers(int a, int b) {
         while (a != b) {

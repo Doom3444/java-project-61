@@ -1,37 +1,25 @@
 package games;
 
-import java.util.Scanner;
-
 public class Progression {
-    public static void progression(Scanner input, int maxTriesCount) {
-        final int maxValueCoefficient = 50;
-        final int maxCountCoefficient = 10;
-        final int minCountCoefficient = 6;
-        final int maxStepCoefficient = 10;
-        String playerName = "";
-        String playerAnswer;
-        String correctAnswer;
-        playerName = Cli.cli(input, playerName);
-        System.out.println("What number is missing in the progression?");
+    public static final int maxValueCoefficient = 50;
+    public static final int maxCountCoefficient = 10;
+    public static final int minCountCoefficient = 6;
+    public static final int maxStepCoefficient = 10;
+    public static String progression() {
+        String answer;
         int firstNumber;
-        int counter = 0;
         int countNumbers;
         int missingNumber;
         int stepOfProgression;
-        boolean progress = true;
-        while (counter < maxTriesCount && progress) {
-            firstNumber = (int) (Math.random() * maxValueCoefficient);
-            stepOfProgression = (int) (Math.random() * maxStepCoefficient);
-            countNumbers = (int) (minCountCoefficient + Math.random() * maxCountCoefficient);
-            missingNumber = (int) (Math.random() * countNumbers);
-            correctAnswer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
-            System.out.print("Question: ");
-            conclusionQuestion(countNumbers, missingNumber, firstNumber, stepOfProgression);
-            System.out.print("\nYour answer: ");
-            playerAnswer = input.next();
-            progress = TemplateAnswer.answer(playerName, correctAnswer, playerAnswer, counter, maxTriesCount);
-            counter++;
-        }
+        firstNumber = (int) (Math.random() * maxValueCoefficient);
+        stepOfProgression = (int) (Math.random() * maxStepCoefficient);
+        countNumbers = (int) (minCountCoefficient + Math.random() * maxCountCoefficient);
+        missingNumber = (int) (Math.random() * countNumbers);
+        answer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
+        System.out.print("Question: ");
+        conclusionQuestion(countNumbers, missingNumber, firstNumber, stepOfProgression);
+        System.out.print("\nYour answer: ");
+        return answer;
     }
     public static void conclusionQuestion(int countNumbers, int missingNumber, int firstNumber, int step) {
         for (int j = 0; j < countNumbers; j++) {
