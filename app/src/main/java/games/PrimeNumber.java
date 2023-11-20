@@ -1,11 +1,11 @@
 package games;
 
 public class PrimeNumber {
-    public static int maxValueCoefficient = 100;
+    public static final int MAXVALUECOEFFICIENT = 100;
     public static String primeNumber() {
         String answer;
         int number;
-        number = (int) (Math.random() * maxValueCoefficient);
+        number = (int) (Math.random() * MAXVALUECOEFFICIENT);
         answer = prime(number) ? "yes" : "no";
         System.out.print("Question: " + number + "\nYour answer: ");
         return answer;

@@ -8,7 +8,7 @@ import games.Progression;
 import java.util.Scanner;
 
 public class App {
-    public static int maxTriesCount = 3;
+    public static final int MAXTRIESCOEFFICIENT = 3;
     public static void main(String[] args) {
         String playerName;
         String playerAnswer;
@@ -36,10 +36,10 @@ public class App {
             System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             triesCounter = 0;
             progress = true;
-            while (triesCounter < maxTriesCount && progress) {
+            while (triesCounter < MAXTRIESCOEFFICIENT && progress) {
                 correctAnswer = Parity.parity();
                 playerAnswer = input.next();
-                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, maxTriesCount);
+                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, MAXTRIESCOEFFICIENT);
                 triesCounter++;
             }
         }
@@ -48,10 +48,10 @@ public class App {
             System.out.println("What is the result of the expression?");
             triesCounter = 0;
             progress = true;
-            while (triesCounter < maxTriesCount && progress) {
+            while (triesCounter < MAXTRIESCOEFFICIENT && progress) {
                 correctAnswer = Calc.calc();
                 playerAnswer = input.next();
-                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, maxTriesCount);
+                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, MAXTRIESCOEFFICIENT);
                 triesCounter++;
             }
         }
@@ -60,10 +60,10 @@ public class App {
             System.out.println("Find the greatest common divisor of given numbers.");
             triesCounter = 0;
             progress = true;
-            while (triesCounter < maxTriesCount && progress) {
+            while (triesCounter < MAXTRIESCOEFFICIENT && progress) {
                 correctAnswer = GCD.gcd();
                 playerAnswer = input.next();
-                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, maxTriesCount);
+                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, MAXTRIESCOEFFICIENT);
                 triesCounter++;
             }
         }
@@ -72,10 +72,10 @@ public class App {
             System.out.println("What number is missing in the progression?");
             triesCounter = 0;
             progress = true;
-            while (triesCounter < maxTriesCount && progress) {
+            while (triesCounter < MAXTRIESCOEFFICIENT && progress) {
                 correctAnswer = Progression.progression();
                 playerAnswer = input.next();
-                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, maxTriesCount);
+                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, MAXTRIESCOEFFICIENT);
                 triesCounter++;
             }
         }
@@ -84,10 +84,10 @@ public class App {
             System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
             triesCounter = 0;
             progress = true;
-            while (triesCounter < maxTriesCount && progress) {
+            while (triesCounter < MAXTRIESCOEFFICIENT && progress) {
                 correctAnswer = PrimeNumber.primeNumber();
                 playerAnswer = input.next();
-                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, maxTriesCount);
+                progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter, MAXTRIESCOEFFICIENT);
                 triesCounter++;
             }
         }

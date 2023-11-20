@@ -1,19 +1,19 @@
 package games;
 
 public class Progression {
-    public static int maxValueCoefficient = 50;
-    public static int maxCountCoefficient = 10;
-    public static int minCountCoefficient = 6;
-    public static int maxStepCoefficient = 10;
+    public static final int MAXVALUECOEFFICIENT = 50;
+    public static final int MAXCOUNTCOEFFICIENT = 10;
+    public static final int MINCOUNTCOEFFICIENT = 6;
+    public static final int MAXSTEPCOEFFICCIENT = 10;
     public static String progression() {
         String answer;
         int firstNumber;
         int countNumbers;
         int missingNumber;
         int stepOfProgression;
-        firstNumber = (int) (Math.random() * maxValueCoefficient);
-        stepOfProgression = (int) (Math.random() * maxStepCoefficient);
-        countNumbers = (int) (minCountCoefficient + Math.random() * maxCountCoefficient);
+        firstNumber = (int) (Math.random() * MAXVALUECOEFFICIENT);
+        stepOfProgression = (int) (Math.random() * MAXSTEPCOEFFICCIENT);
+        countNumbers = (int) (MINCOUNTCOEFFICIENT + Math.random() * MAXCOUNTCOEFFICIENT);
         missingNumber = (int) (Math.random() * countNumbers);
         answer = Integer.toString(firstNumber + missingNumber * stepOfProgression);
         System.out.print("Question: ");

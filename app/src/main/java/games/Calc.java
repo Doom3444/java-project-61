@@ -1,17 +1,17 @@
 package games;
 
 public class Calc {
-    public static int maxValueCoefficient = 100;
-    public static int actionValueCoefficient = 3;
+    public static final int MAXVALUECOEFFICIENT = 50;
+    public static final int ACTIONVALUECOEFFICIENT = 3;
     public static String calc() {
         String answer;
         String actionString;
         int numberFirst;
         int numberSecond;
         int actionInt;
-        numberFirst = (int) (Math.random() * maxValueCoefficient);
-        numberSecond = (int) (Math.random() * maxValueCoefficient);
-        actionInt = (int) (Math.random() * actionValueCoefficient);
+        numberFirst = (int) (Math.random() * MAXVALUECOEFFICIENT);
+        numberSecond = (int) (Math.random() * MAXVALUECOEFFICIENT);
+        actionInt = (int) (Math.random() * ACTIONVALUECOEFFICIENT);
         actionString = action(actionInt);
         answer = correctAnswer(actionString, numberFirst, numberSecond);
         System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
