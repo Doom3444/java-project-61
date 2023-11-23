@@ -15,13 +15,13 @@ public class Progression {
         }
         return arrayOfNumbers;
     }
-    public static int missingNumber(int countNumbers) {
-        return (int) (Math.random() * countNumbers);
+    public static int missingNumber(int[] numbers) {
+        return numbers[(int) (Math.random() * numbers.length)];
     }
-    public static void conclusionQuestion(int[] array, int missingNumber) {
+    public static void Question(int[] array, int missingNumber) {
         System.out.print("Question: ");
         for (int j = 0; j < array.length; j++) {
-            if (j == missingNumber) {
+            if (array[j] == missingNumber) {
                 System.out.print("..");
             } else {
                 System.out.print(array[j]);

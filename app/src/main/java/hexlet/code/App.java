@@ -17,31 +17,8 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
         String playerChoice = input.next();
-        switch (playerChoice) {
-            case "1":
-                Engine.game1(input);
-                break;
-            case "2":
-                Engine.game2(input);
-                break;
-            case "3":
-                Engine.game3(input);
-                break;
-            case "4":
-                Engine.game4(input);
-                break;
-            case "5":
-                Engine.game5(input);
-                break;
-            case "6":
-                Engine.game6(input);
-                break;
-            //В принципе можно было оставить 0 как дефолтный выход, но мне сие не нравится :)
-            case "0":
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
+        if (!playerChoice.equals("0")) {
+            Engine.engine(playerChoice, input);
         }
         input.close();
     }
