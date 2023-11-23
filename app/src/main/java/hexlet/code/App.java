@@ -17,7 +17,23 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
         String playerChoice = input.next();
-        Engine.engine(playerChoice, input);
+        if (playerChoice.equals("0")) {
+            return;
+        }
+        if (correctChoice(playerChoice)) {
+            Engine.engine(playerChoice, input);
+        } else {
+            System.out.println("Invalid choice");
+        }
         input.close();
+    }
+    private static boolean correctChoice(String playerChoice) {
+        String[] correctChoice = {"1", "2", "3", "4", "5", "6"};
+        for (String choice : correctChoice) {
+            if (playerChoice.equals(choice)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
