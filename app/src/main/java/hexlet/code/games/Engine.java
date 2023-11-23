@@ -19,22 +19,23 @@ public class Engine {
         }
     }
     private static String correctAnswer(String playerChoice, int triesCount) {
+        String answer = "";
         if (playerChoice.equals("2")) {
-            return Parity.parity(triesCount);
+            answer = Parity.parity(triesCount);
         }
         if (playerChoice.equals("3")) {
-            return Integer.toString(Calc.calc(triesCount));
+            answer = Integer.toString(Calc.calc(triesCount));
         }
         if (playerChoice.equals("4")) {
-            return Integer.toString(GCD.gcd(triesCount));
+            answer = Integer.toString(GCD.gcd(triesCount));
         }
         if (playerChoice.equals("5")) {
-            return Integer.toString(Progression.progression(triesCount));
+            answer = Integer.toString(Progression.progression(triesCount));
         }
         if (playerChoice.equals("6")) {
-            return PrimeNumber.primeNumber(triesCount);
+            answer = PrimeNumber.primeNumber(triesCount);
         }
-        return "";
+        return answer;
     }
     private static boolean templateAnswer(String playerName,
                                          String correctAnswer,
