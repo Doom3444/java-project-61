@@ -17,9 +17,7 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
         String playerChoice = input.next();
-        if (!playerChoice.equals("0")) {
-            Engine.engine(playerChoice, input);
-        }
+        Engine.engine(playerChoice, input);
         input.close();
     }
 }

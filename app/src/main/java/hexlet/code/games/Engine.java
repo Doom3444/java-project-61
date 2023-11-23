@@ -5,83 +5,64 @@ import java.util.Scanner;
 public class Engine {
     public static final int MAX_TRIES_COEFFICIENT = 3;
     public static void engine(String playerChoice, Scanner input) {
-        String playerName = Cli.cli(input);
+        String playerName;
         switch (playerChoice) {
             case "1":
-                break;
+                playerName = Cli.cli(input);
+                return;
             case "2":
-                game2(playerName, input);
+                playerName = Cli.cli(input);
+                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
                 break;
             case "3":
-                game3(playerName, input);
+                playerName = Cli.cli(input);
+                System.out.println("What is the result of the expression?");
                 break;
             case "4":
-                game4(playerName, input);
+                playerName = Cli.cli(input);
+                System.out.println("Find the greatest common divisor of given numbers.");
                 break;
             case "5":
-                game5(playerName, input);
+                playerName = Cli.cli(input);
+                System.out.println("What number is missing in the progression?");
                 break;
             case "6":
-                game6(playerName, input);
+                playerName = Cli.cli(input);
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 break;
+            case "0":
+                return;
             default:
                 System.out.println("Invalid choice");
-                break;
+                return;
         }
-    }
-    public static void game2(String playerName, Scanner input) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         int triesCounter = 0;
         boolean progress = true;
+        String correctAnswer;
         while (triesCounter < MAX_TRIES_COEFFICIENT && progress) {
-            String correctAnswer = Parity.parity();
-            String playerAnswer = input.next();
-            progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter);
-            triesCounter++;
-        }
-    }
-    public static void game3(String playerName, Scanner input) {
-        System.out.println("What is the result of the expression?");
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < MAX_TRIES_COEFFICIENT && progress) {
-            String correctAnswer = Integer.toString(Calc.calc());
-            String playerAnswer = input.next();
-            progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter);
-            triesCounter++;
-        }
-    }
-    public static void game4(String playerName, Scanner input) {
-        System.out.println("Find the greatest common divisor of given numbers.");
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < MAX_TRIES_COEFFICIENT && progress) {
-            String correctAnswer = Integer.toString(GCD.gcd());
-            String playerAnswer = input.next();
-            progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter);
-            triesCounter++;
-        }
-    }
-    public static void game5(String playerName, Scanner input) {
-        System.out.println("What number is missing in the progression?");
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < MAX_TRIES_COEFFICIENT && progress) {
-            int[] arrayOfNumbers = Progression.progression();
-            int missingNumber = Progression.missingNumber(arrayOfNumbers);
-            String correctAnswer = Integer.toString(missingNumber);
-            Progression.Question(arrayOfNumbers, missingNumber);
-            String playerAnswer = input.next();
-            progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter);
-            triesCounter++;
-        }
-    }
-    public static void game6(String playerName, Scanner input) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < MAX_TRIES_COEFFICIENT && progress) {
-            String correctAnswer = PrimeNumber.primeNumber();
+            switch (playerChoice) {
+                case "2":
+                    correctAnswer = Parity.parity();
+                    break;
+                case "3":
+                    correctAnswer = Integer.toString(Calc.calc());
+                    break;
+                case "4":
+                    correctAnswer = Integer.toString(GCD.gcd());
+                    break;
+                case "5":
+                    int[] arrayOfNumbers = Progression.progression();
+                    int missingNumber = Progression.missingNumber(arrayOfNumbers);
+                    correctAnswer = Integer.toString(missingNumber);
+                    Progression.Question(arrayOfNumbers, missingNumber);
+                    break;
+                case "6":
+                    correctAnswer = PrimeNumber.primeNumber();
+                    break;
+                default:
+                    correctAnswer = "";
+                    break;
+            }
             String playerAnswer = input.next();
             progress = templateAnswer(playerName, correctAnswer, playerAnswer, triesCounter);
             triesCounter++;
