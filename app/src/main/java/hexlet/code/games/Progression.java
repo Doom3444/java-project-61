@@ -5,28 +5,23 @@ public class Progression {
     public static final int MAX_COUNT_COEFFICIENT = 10;
     public static final int MIN_COUNT_COEFFICIENT = 6;
     public static final int MAX_STEP_COEFFICIENT = 10;
-    public static int[] progression() {
+    public static int progression() {
         int firstNumber = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
         int stepOfProgression = (int) (Math.random() * MAX_STEP_COEFFICIENT);
         int countNumbers = (int) (MIN_COUNT_COEFFICIENT + Math.random() * MAX_COUNT_COEFFICIENT);
-        int[] arrayOfNumbers = new int[countNumbers];
-        for (int i = 0; i < countNumbers; i++) {
-            arrayOfNumbers[i] = firstNumber + i * stepOfProgression;
-        }
-        return arrayOfNumbers;
+        int missingNumber = (int) (Math.random() * countNumbers);
+        Question(firstNumber, stepOfProgression, countNumbers, missingNumber);
+        return firstNumber + missingNumber * stepOfProgression;
     }
-    public static int missingNumber(int[] numbers) {
-        return numbers[(int) (Math.random() * numbers.length)];
-    }
-    public static void Question(int[] array, int missingNumber) {
+    public static void Question(int first, int step, int count, int missingNumber) {
         System.out.print("Question: ");
-        for (int j = 0; j < array.length; j++) {
-            if (array[j] == missingNumber) {
+        for (int j = 0; j < count; j++) {
+            if (j == missingNumber) {
                 System.out.print("..");
             } else {
-                System.out.print(array[j]);
+                System.out.print(first + j * step);
             }
-            if (j != array.length - 1) {
+            if (j != count - 1) {
                 System.out.print(" ");
             }
         }
