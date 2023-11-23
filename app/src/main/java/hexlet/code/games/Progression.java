@@ -22,10 +22,7 @@ public class Progression {
         for (int j = 0; j < count; j++) {
             if (j == missingNumber) {
                 System.out.print("..");
-            }
-            if (j != missingNumber) {
-                System.out.print(first + j * step);
-            }
+            } else System.out.print(first + j * step);
             if (j != count - 1) {
                 System.out.print(" ");
             }
