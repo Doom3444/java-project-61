@@ -17,7 +17,31 @@ public class App {
                 0 - Exit
                 Your choice:\s""");
         String playerChoice = input.next();
-        Engine.engine(playerChoice, input);
+        switch (playerChoice) {
+            case "1":
+                Engine.game1(input);
+                break;
+            case "2":
+                Engine.game2(input);
+                break;
+            case "3":
+                Engine.game3(input);
+                break;
+            case "4":
+                Engine.game4(input);
+                break;
+            case "5":
+                Engine.game5(input);
+                break;
+            case "6":
+                Engine.game6(input);
+                break;
+            case "0":
+                return;
+            default:
+                System.out.println("Invalid choice");
+                break;
+        }
         input.close();
     }
 }
