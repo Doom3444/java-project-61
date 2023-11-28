@@ -11,10 +11,6 @@ public class Engine {
                                  int maxTries) {
         System.out.print("Question: " + question + "\nYour Answer: ");
         String playerAnswer = input.next();
-        if (correctAnswer.equals("Invalid answer")) {
-            System.out.println(correctAnswer);
-            return false;
-        }
         if (playerAnswer.equals(correctAnswer) && counter < maxTries - 1) {
             System.out.println("Correct!");
             return true;
@@ -28,4 +24,5 @@ public class Engine {
         System.out.println("Let's try again, " + playerName + "!");
         return false;
     }
+
 }

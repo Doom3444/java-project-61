@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Parity {
+
     private static final int MAX_VALUE_COEFFICIENT = 100;
 
     public static void parity(Scanner input, String playerName, int tries) {
@@ -25,4 +26,5 @@ public class Parity {
     private static boolean isEven(int number) {
         return number % 2 == 0;
     }
+
 }

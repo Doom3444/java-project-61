@@ -10,6 +10,7 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
+
     private static final int MAX_TRIES_COEFFICIENT = 3;
 
     public static void main(String[] args) {
@@ -74,4 +75,5 @@ public class App {
         }
         return true;
     }
+
 }

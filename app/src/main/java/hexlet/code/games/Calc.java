@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Calc {
+
     private static final int MAX_VALUE_COEFFICIENT = 50;
 
     private static final int ACTION_VALUE_COEFFICIENT = 3;
@@ -32,7 +33,6 @@ public class Calc {
             case 2:
                 return "-";
             default:
-                System.out.print("Invalid action");
                 return "Invalid action";
         }
     }
@@ -50,7 +50,10 @@ public class Calc {
             case "-":
                 return n1 - n2;
             default:
-                return Integer.parseInt(null);
+                System.out.println("Invalid action");
+                System.exit(0);
+                return 0;
         }
     }
+
 }

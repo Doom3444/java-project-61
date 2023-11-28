@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class GCD {
+
     private static final int MAX_VALUE_COEFFICIENT = 100;
 
     private static final int MIN_VALUE_COEFFICIENT = 1;
@@ -35,4 +36,5 @@ public class GCD {
         }
         return n1;
     }
+
 }

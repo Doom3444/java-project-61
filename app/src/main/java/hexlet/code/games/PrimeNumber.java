@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class PrimeNumber {
+
     private static final int MAX_VALUE_COEFFICIENT = 100;
 
     public static void primeNumber(Scanner input, String playerName, int tries) {
@@ -33,4 +34,5 @@ public class PrimeNumber {
         }
         return true;
     }
+
 }

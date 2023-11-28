@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Progression {
+
     private static final int MAX_VALUE_COEFFICIENT = 50;
 
     private static final int MAX_COUNT_COEFFICIENT = 10;
@@ -45,4 +46,5 @@ public class Progression {
     private static int missingNumber(int first, int step, int missingIndex) {
         return first + step * missingIndex;
     }
+
 }
