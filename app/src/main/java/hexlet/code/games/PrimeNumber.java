@@ -1,18 +1,28 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public class PrimeNumber {
     private static final int MAX_VALUE_COEFFICIENT = 100;
-    private static final int FIRST_ATTEMPT = 0;
-    public static String primeNumber(int tries) {
-        if (tries == FIRST_ATTEMPT) {
-            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+
+    public static void primeNumber(Scanner input, String playerName, int tries) {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        int triesCounter = 0;
+        boolean progress = true;
+        while (triesCounter < tries && progress) {
+            int number = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
+            String question = question(number);
+            String correctAnswer = isPrime(number) ? "yes" : "no";
+            progress = Engine.engine(input, playerName, question, correctAnswer, triesCounter, tries);
+            triesCounter++;
         }
-        int number = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-        String answer = prime(number) ? "yes" : "no";
-        System.out.print("Question: " + number + "\nYour answer: ");
-        return answer;
     }
-    private static boolean prime(int number) {
+
+    private static String question(int number) {
+        return String.valueOf(number);
+    }
+
+    private static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
         }

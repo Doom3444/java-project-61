@@ -1,23 +1,38 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public class GCD {
     private static final int MAX_VALUE_COEFFICIENT = 100;
+
     private static final int MIN_VALUE_COEFFICIENT = 1;
-    private static final int FIRST_ATTEMPT = 0;
-    public static int gcd(int tries) {
-        if (tries == FIRST_ATTEMPT) {
-            System.out.println("Find the greatest common divisor of given numbers.");
+
+    public static void gcd(Scanner input, String playerName, int tries) {
+        System.out.println("Find the greatest common divisor of given numbers.");
+        int triesCounter = 0;
+        boolean progress = true;
+        while (triesCounter < tries && progress) {
+            int numberFirst = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
+            int numberSecond = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
+            String question = question(numberFirst, numberSecond);
+            int correctAnswer = GreatestCommonDivisor(numberFirst, numberSecond);
+            progress = Engine.engine(input, playerName, question, Integer.toString(correctAnswer), triesCounter, tries);
+            triesCounter++;
         }
-        int numberFirst = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
-        int numberSecond = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
-        System.out.print("Question: " + numberFirst + " " + numberSecond + "\nYour answer: ");
-        while (numberFirst != numberSecond) {
-            if (numberFirst > numberSecond) {
-                numberFirst = numberFirst - numberSecond;
+    }
+
+    private static String question(int n1, int n2) {
+        return n1 + " " + n2;
+    }
+
+    private static int GreatestCommonDivisor(int n1, int n2) {
+        while (n1 != n2) {
+            if (n1 > n2) {
+                n1 = n1 - n2;
             } else {
-                numberSecond = numberSecond - numberFirst;
+                n2 = n2 - n1;
             }
         }
-        return numberFirst;
+        return n1;
     }
 }

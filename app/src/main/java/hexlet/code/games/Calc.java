@@ -1,42 +1,56 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public class Calc {
     private static final int MAX_VALUE_COEFFICIENT = 50;
+
     private static final int ACTION_VALUE_COEFFICIENT = 3;
-    private static final int FIRST_ATTEMPT = 0;
-    public static int calc(int tries) {
-        if (tries == FIRST_ATTEMPT) {
-            System.out.println("What is the result of the expression?");
+
+    public static void calc(Scanner input, String playerName, int tries) {
+        System.out.println("What is the result of the expression?");
+        int triesCounter = 0;
+        boolean progress = true;
+        while (triesCounter < tries && progress) {
+            int numberFirst = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
+            int numberSecond = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
+            int actionInt = (int) (Math.random() * ACTION_VALUE_COEFFICIENT);
+            String actionStr = actionIntToStr(actionInt);
+            String question = question(numberFirst, numberSecond, actionStr);
+            int correctAnswer = calculation(numberFirst, numberSecond, actionStr);
+            progress = Engine.engine(input, playerName, question, Integer.toString(correctAnswer), triesCounter, tries);
+            triesCounter++;
         }
-        int numberFirst = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-        int numberSecond = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-        int actionInt = (int) (Math.random() * ACTION_VALUE_COEFFICIENT);
-        String actionString = action(actionInt);
-        System.out.print("Question: " + numberFirst + " " + actionString + " " + numberSecond + "\nYour answer: ");
-        return correctAnswer(actionString, numberFirst, numberSecond);
     }
-    private static String action(int action) {
-        if (action == 0) {
-            return "+";
+
+    private static String actionIntToStr(int action) {
+        switch (action) {
+            case 0:
+                return "+";
+            case 1:
+                return "*";
+            case 2:
+                return "-";
+            default:
+                System.out.print("Invalid action");
+                return "Invalid action";
         }
-        if (action == 1) {
-            return "*";
-        }
-        if (action == 2) {
-            return "-";
-        }
-        return null;
     }
-    private static int correctAnswer(String action, int numberFirst, int numberSecond) {
-        if (action.equals("+")) {
-            return numberFirst + numberSecond;
+
+    private static String question(int n1, int n2, String action) {
+        return n1 + " " + action + " " + n2;
+    }
+
+    private static int calculation(int n1, int n2, String action) {
+        switch (action) {
+            case "+":
+                return n1 + n2;
+            case "*":
+                return n1 * n2;
+            case "-":
+                return n1 - n2;
+            default:
+                return Integer.parseInt(null);
         }
-        if (action.equals("*")) {
-            return numberFirst * numberSecond;
-        }
-        if (action.equals("-")) {
-            return numberFirst - numberSecond;
-        }
-        return 0;
     }
 }
