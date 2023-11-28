@@ -15,7 +15,7 @@ public class GCD {
             int numberFirst = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
             int numberSecond = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
             String question = question(numberFirst, numberSecond);
-            int correctAnswer = GreatestCommonDivisor(numberFirst, numberSecond);
+            int correctAnswer = greatestCommonDivisor(numberFirst, numberSecond);
             progress = Engine.engine(input, playerName, question, Integer.toString(correctAnswer), triesCounter, tries);
             triesCounter++;
         }
@@ -25,7 +25,7 @@ public class GCD {
         return n1 + " " + n2;
     }
 
-    private static int GreatestCommonDivisor(int n1, int n2) {
+    private static int greatestCommonDivisor(int n1, int n2) {
         while (n1 != n2) {
             if (n1 > n2) {
                 n1 = n1 - n2;

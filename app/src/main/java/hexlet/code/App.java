@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Cli;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Parity;
+import hexlet.code.games.PrimeNumber;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -38,7 +43,7 @@ public class App {
     }
 
     private static void gameLaunch(Scanner input, String playerChoice, String playerName) {
-        switch(playerChoice) {
+        switch (playerChoice) {
             case "2":
                 Parity.parity(input, playerName, MAX_TRIES_COEFFICIENT);
                 break;
