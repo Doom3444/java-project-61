@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class GCD {
 
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
     private static final int MAX_VALUE_COEFFICIENT = 100;
 
     private static final int MIN_VALUE_COEFFICIENT = 1;
 
-    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
-
-    public static void gcd(Scanner input, String playerName, int tries, String[] qA) {
+    public static void gameGCD(Scanner input, String playerName, int tries, String[] qA) {
         int triesCounter = 0;
         boolean progress = true;
         while (triesCounter < tries && progress) {

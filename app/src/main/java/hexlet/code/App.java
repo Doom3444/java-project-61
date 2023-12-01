@@ -11,9 +11,9 @@ import java.util.Scanner;
 
 public class App {
 
-    private static final String[] QUESTION_AND_ANSWER = new String[2];
-
     private static final int MAX_TRIES_COEFFICIENT = 3;
+
+    private static final String[] QUESTION_AND_ANSWER = new String[2];
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -48,19 +48,19 @@ public class App {
     private static void gameLaunch(Scanner input, String playerChoice, String playerName) {
         switch (playerChoice) {
             case "2":
-                Parity.parity(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Parity.gameParity(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
                 break;
             case "3":
-                Calc.calc(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Calc.gameCalculator(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
                 break;
             case "4":
-                GCD.gcd(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                GCD.gameGCD(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
                 break;
             case "5":
-                Progression.progression(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Progression.gameProgression(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
                 break;
             case "6":
-                PrimeNumber.primeNumber(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                PrimeNumber.gamePrimeNumber(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
                 break;
             default:
                 System.out.println("The game not found");

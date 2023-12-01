@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Calc {
 
-    private static final int MAX_VALUE_COEFFICIENT = 50;
-
     private static final int ACTION_VALUE_COEFFICIENT = 3;
 
     private static final String DESCRIPTION = "What is the result of the expression?";
 
-    public static void calc(Scanner input, String playerName, int tries, String[] qA) {
+    private static final int MAX_VALUE_COEFFICIENT = 50;
+
+    public static void gameCalculator(Scanner input, String playerName, int tries, String[] qA) {
         int triesCounter = 0;
         boolean progress = true;
         while (triesCounter < tries && progress) {

@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Parity {
 
-    private static final int MAX_VALUE_COEFFICIENT = 100;
-
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void parity(Scanner input, String playerName, int tries, String[] qA) {
+    private static final int MAX_VALUE_COEFFICIENT = 100;
+
+    public static void gameParity(Scanner input, String playerName, int tries, String[] qA) {
         int triesCounter = 0;
         boolean progress = true;
         while (triesCounter < tries && progress) {
