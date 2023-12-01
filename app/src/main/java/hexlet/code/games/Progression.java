@@ -46,7 +46,7 @@ public class Progression {
         StringBuilder question = new StringBuilder();
         for (int i = 0; i < count; i++) {
             if (i == missingIndex) {
-                question.append(missingNumber(first, step, missingIndex));
+                question.append("..");
             } else {
                 question.append(progression[i]);
             }
