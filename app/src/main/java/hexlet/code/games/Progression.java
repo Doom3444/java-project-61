@@ -12,8 +12,9 @@ public class Progression {
 
     private static final int MAX_STEP_COEFFICIENT = 10;
 
-    public static void progression(Scanner input, String playerName, int tries) {
-        System.out.println("What number is missing in the progression?");
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+
+    public static void progression(Scanner input, String playerName, int tries, String[]  qA) {
         int triesCounter = 0;
         boolean progress = true;
         while (triesCounter < tries && progress) {
@@ -21,21 +22,19 @@ public class Progression {
             int stepOfProgression = (int) (Math.random() * MAX_STEP_COEFFICIENT);
             int countNumbers = (int) (MIN_COUNT_COEFFICIENT + Math.random() * MAX_COUNT_COEFFICIENT);
             int missingNumberIndex = (int) (Math.random() * countNumbers);
-            String question = question(firstNumber, stepOfProgression, countNumbers, missingNumberIndex);
             int correctAnswer = missingNumber(firstNumber, stepOfProgression, missingNumberIndex);
-            progress = Engine.engine(input, playerName, question, Integer.toString(correctAnswer), triesCounter, tries);
+            qA[0] = progressionGenerator(firstNumber, stepOfProgression, countNumbers)
+                    .replace(Integer.toString(correctAnswer), "..");
+            qA[1] = Integer.toString(correctAnswer);
+            progress = Engine.engine(input, playerName, DESCRIPTION, qA, triesCounter, tries);
             triesCounter++;
         }
     }
 
-    private static String question(int first, int step, int count, int index) {
+    private static String progressionGenerator(int first, int step, int count) {
         StringBuilder question = new StringBuilder();
         for (int j = 0; j < count; j++) {
-            if (j == index) {
-                question.append("..");
-            } else {
-                question.append(first + j * step);
-            }
+            question.append(first + j * step);
             if (j != count - 1) {
                 question.append(" ");
             }

@@ -6,21 +6,18 @@ public class Parity {
 
     private static final int MAX_VALUE_COEFFICIENT = 100;
 
-    public static void parity(Scanner input, String playerName, int tries) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
+    public static void parity(Scanner input, String playerName, int tries, String[] qA) {
         int triesCounter = 0;
         boolean progress = true;
         while (triesCounter < tries && progress) {
             int number = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-            String question = question(number);
-            String correctAnswer = isEven(number) ? "yes" : "no";
-            progress = Engine.engine(input, playerName, question, correctAnswer, triesCounter, tries);
+            qA[0] = String.valueOf(number);
+            qA[1] = isEven(number) ? "yes" : "no";
+            progress = Engine.engine(input, playerName, DESCRIPTION, qA, triesCounter, tries);
             triesCounter++;
         }
-    }
-
-    private static String question(int number) {
-        return String.valueOf(number);
     }
 
     private static boolean isEven(int number) {
