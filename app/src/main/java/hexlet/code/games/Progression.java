@@ -50,6 +50,9 @@ public class Progression {
             } else {
                 question.append(progression[i]);
             }
+            if (i != count - 1) {
+                question.append("  ");
+            }
         }
         return question.toString();
     }
