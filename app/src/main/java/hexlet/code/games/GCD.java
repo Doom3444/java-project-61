@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class GCD {
 
     private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
@@ -10,17 +8,15 @@ public class GCD {
 
     private static final int MIN_VALUE_COEFFICIENT = 1;
 
-    public static void gameGCD(Scanner input, String playerName, int tries, String[] qA) {
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < tries && progress) {
-            int numberFirst = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
-            int numberSecond = (int) (MIN_VALUE_COEFFICIENT + Math.random() * MAX_VALUE_COEFFICIENT);
-            qA[0] = numberFirst + " " + numberSecond;
-            qA[1] = Integer.toString(greatestCommonDivisor(numberFirst, numberSecond));
-            progress = Engine.engine(input, playerName, DESCRIPTION, qA, triesCounter, tries);
-            triesCounter++;
+    public static void gameGCD() {
+        String[][] qA = new String[Engine.MAX_TRIES_COEFFICIENT][Engine.QUESTION_AND_ANSWERS_COUNT];
+        for (String[] iterator: qA) {
+            int numberFirst = RandomGenerator.getRandom(MIN_VALUE_COEFFICIENT, MAX_VALUE_COEFFICIENT);
+            int numberSecond = RandomGenerator.getRandom(MIN_VALUE_COEFFICIENT, MAX_VALUE_COEFFICIENT);
+            iterator[0] = numberFirst + " " + numberSecond;
+            iterator[1] = Integer.toString(greatestCommonDivisor(numberFirst, numberSecond));
         }
+        Engine.engine(DESCRIPTION, qA);
     }
 
     private static int greatestCommonDivisor(int n1, int n2) {

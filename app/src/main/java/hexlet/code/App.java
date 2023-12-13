@@ -11,12 +11,7 @@ import java.util.Scanner;
 
 public class App {
 
-    private static final int MAX_TRIES_COEFFICIENT = 3;
-
-    private static final String[] QUESTION_AND_ANSWER = new String[2];
-
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         System.out.print("""
                 Please enter the game number and press Enter
                 1 - Greet
@@ -27,40 +22,38 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
+        Scanner input = new Scanner(System.in);
         String playerChoice = input.next();
         if (playerChoice.equals("0")) {
             return;
         }
         if (ifChoiceIsIncorrect(playerChoice)) {
             System.out.println("Invalid choice");
-            input.close();
             return;
         }
-        String playerName = Cli.cli(input);
-        if (playerChoice.equals("1")) {
-            input.close();
-            return;
-        }
-        gameLaunch(input, playerChoice, playerName);
+        gameLaunch(playerChoice);
         input.close();
     }
 
-    private static void gameLaunch(Scanner input, String playerChoice, String playerName) {
+    private static void gameLaunch(String playerChoice) {
         switch (playerChoice) {
+            case "1":
+                Cli.cli();
+                break;
             case "2":
-                Parity.gameParity(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Parity.gameParity();
                 break;
             case "3":
-                Calc.gameCalculator(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Calc.gameCalculator();
                 break;
             case "4":
-                GCD.gameGCD(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                GCD.gameGCD();
                 break;
             case "5":
-                Progression.gameProgression(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                Progression.gameProgression();
                 break;
             case "6":
-                PrimeNumber.gamePrimeNumber(input, playerName, MAX_TRIES_COEFFICIENT, QUESTION_AND_ANSWER);
+                PrimeNumber.gamePrimeNumber();
                 break;
             default:
                 System.out.println("The game not found");

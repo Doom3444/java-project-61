@@ -4,31 +4,26 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int FIRST_TRY = 0;
+    public static final int MAX_TRIES_COEFFICIENT = 3;
 
-    public static boolean engine(Scanner input,
-                                 String playerName,
-                                 String description,
-                                 String[] qA,
-                                 int counter,
-                                 int maxTries) {
-        if (counter == FIRST_TRY) {
-            System.out.println(description);
-        }
-        System.out.print("Question: " + qA[0] + "\nYour Answer: ");
-        String playerAnswer = input.next();
-        if (playerAnswer.equals(qA[1]) && counter < maxTries - 1) {
+    public static final int QUESTION_AND_ANSWERS_COUNT = 2;
+
+    public static void engine(String description, String[][] qAndA) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
+        String playerName = input.next();
+        System.out.println("Hello, " + playerName + "!\n" + description);
+        for (String[] qA: qAndA) {
+            System.out.print("Question: " + qA[0] + "\nYour Answer: ");
+            String playerAnswer = input.next();
+            if (!playerAnswer.equals(qA[1])) {
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + qA[1] + "'.");
+                System.out.println("Let's try again, " + playerName + "!");
+                return;
+            }
             System.out.println("Correct!");
-            return true;
         }
-        if (playerAnswer.equals(qA[1]) && counter == maxTries - 1) {
-            System.out.println("Correct!");
-            System.out.println("Congratulations, " + playerName + "!");
-            return true;
-        }
-        System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + qA[1] + "'.");
-        System.out.println("Let's try again, " + playerName + "!");
-        return false;
+        System.out.println("Congratulations, " + playerName + "!");
     }
 
 }

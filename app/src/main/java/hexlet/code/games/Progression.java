@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Progression {
 
     private static final String DESCRIPTION = "What number is missing in the progression?";
@@ -14,19 +12,17 @@ public class Progression {
 
     private static final int MIN_COUNT_COEFFICIENT = 6;
 
-    public static void gameProgression(Scanner input, String playerName, int tries, String[]  qA) {
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < tries && progress) {
-            int firstNumber = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-            int stepOfProgression = (int) (Math.random() * MAX_STEP_COEFFICIENT);
-            int countNumbers = (int) (MIN_COUNT_COEFFICIENT + Math.random() * MAX_COUNT_COEFFICIENT);
-            int missingNumberIndex = (int) (Math.random() * countNumbers);
-            qA[0] = question(firstNumber, stepOfProgression, countNumbers, missingNumberIndex);
-            qA[1] = Integer.toString(missingNumber(firstNumber, stepOfProgression, missingNumberIndex));
-            progress = Engine.engine(input, playerName, DESCRIPTION, qA, triesCounter, tries);
-            triesCounter++;
+    public static void gameProgression() {
+        String[][] qA = new String[Engine.MAX_TRIES_COEFFICIENT][Engine.QUESTION_AND_ANSWERS_COUNT];
+        for (String[] iterator: qA) {
+            int firstNumber = RandomGenerator.getRandom(MAX_VALUE_COEFFICIENT);
+            int stepOfProgression = RandomGenerator.getRandom(MAX_STEP_COEFFICIENT);
+            int countNumbers = RandomGenerator.getRandom(MIN_COUNT_COEFFICIENT, MAX_COUNT_COEFFICIENT);
+            int missingNumberIndex = RandomGenerator.getRandom(countNumbers);
+            iterator[0] = question(firstNumber, stepOfProgression, countNumbers, missingNumberIndex);
+            iterator[1] = Integer.toString(missingNumber(firstNumber, stepOfProgression, missingNumberIndex));
         }
+        Engine.engine(DESCRIPTION, qA);
     }
 
     private static int missingNumber(int first, int step, int missingIndex) {

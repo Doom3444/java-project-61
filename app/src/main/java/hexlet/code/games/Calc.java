@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Calc {
 
     private static final int ACTION_VALUE_COEFFICIENT = 3;
@@ -10,22 +8,20 @@ public class Calc {
 
     private static final int MAX_VALUE_COEFFICIENT = 50;
 
-    public static void gameCalculator(Scanner input, String playerName, int tries, String[] qA) {
-        int triesCounter = 0;
-        boolean progress = true;
-        while (triesCounter < tries && progress) {
-            int numberFirst = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-            int numberSecond = (int) (Math.random() * MAX_VALUE_COEFFICIENT);
-            int actionInt = (int) (Math.random() * ACTION_VALUE_COEFFICIENT);
+    public static void gameCalculator() {
+        String[][] qA = new String[Engine.MAX_TRIES_COEFFICIENT][Engine.QUESTION_AND_ANSWERS_COUNT];
+        for (String[] iterator: qA) {
+            int numberFirst = RandomGenerator.getRandom(MAX_VALUE_COEFFICIENT);
+            int numberSecond = RandomGenerator.getRandom(MAX_VALUE_COEFFICIENT);
+            int actionInt = RandomGenerator.getRandom(ACTION_VALUE_COEFFICIENT);
             String actionStr = actionIntToStr(actionInt);
             if (actionStr.equals("IA")) {
                 return;
             }
-            qA[0] = numberFirst + " " + actionStr + " " + numberSecond;
-            qA[1] = Integer.toString(calculation(numberFirst, numberSecond, actionStr));
-            progress = Engine.engine(input, playerName, DESCRIPTION, qA, triesCounter, tries);
-            triesCounter++;
+            iterator[0] = numberFirst + " " + actionStr + " " + numberSecond;
+            iterator[1] = Integer.toString(calculation(numberFirst, numberSecond, actionStr));
         }
+        Engine.engine(DESCRIPTION, qA);
     }
 
     private static String actionIntToStr(int action) {
