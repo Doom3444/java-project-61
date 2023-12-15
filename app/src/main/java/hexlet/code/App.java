@@ -27,10 +27,6 @@ public class App {
         if (playerChoice.equals("0")) {
             return;
         }
-        if (ifChoiceIsIncorrect(playerChoice)) {
-            System.out.println("Invalid choice");
-            return;
-        }
         gameLaunch(playerChoice);
         input.close();
     }
@@ -59,16 +55,6 @@ public class App {
                 System.out.println("The game not found");
                 break;
         }
-    }
-
-    private static boolean ifChoiceIsIncorrect(String playerChoice) {
-        String[] correctChoice = {"1", "2", "3", "4", "5", "6"};
-        for (String choice : correctChoice) {
-            if (playerChoice.equals(choice)) {
-                return false;
-            }
-        }
-        return true;
     }
 
 }

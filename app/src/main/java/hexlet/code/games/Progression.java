@@ -1,23 +1,26 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.utils.RandomGenerator;
+
 public class Progression {
 
     private static final String DESCRIPTION = "What number is missing in the progression?";
 
-    private static final int MAX_COUNT_COEFFICIENT = 10;
+    private static final int MAX_COUNT_VALUE = 10;
 
-    private static final int MAX_STEP_COEFFICIENT = 10;
+    private static final int MAX_STEP_VALUE = 10;
 
-    private static final int MAX_VALUE_COEFFICIENT = 50;
+    private static final int MAX_VALUE = 50;
 
-    private static final int MIN_COUNT_COEFFICIENT = 6;
+    private static final int MIN_COUNT_VALUE = 6;
 
     public static void gameProgression() {
-        String[][] qA = new String[Engine.MAX_TRIES_COEFFICIENT][Engine.QUESTION_AND_ANSWERS_COUNT];
+        String[][] qA = new String[Engine.MAX_TRIES][Engine.QUESTION_AND_ANSWERS_COUNT];
         for (String[] iterator: qA) {
-            int firstNumber = RandomGenerator.getRandom(MAX_VALUE_COEFFICIENT);
-            int stepOfProgression = RandomGenerator.getRandom(MAX_STEP_COEFFICIENT);
-            int countNumbers = RandomGenerator.getRandom(MIN_COUNT_COEFFICIENT, MAX_COUNT_COEFFICIENT);
+            int firstNumber = RandomGenerator.getRandom(MAX_VALUE);
+            int stepOfProgression = RandomGenerator.getRandom(MAX_STEP_VALUE);
+            int countNumbers = RandomGenerator.getRandom(MIN_COUNT_VALUE, MAX_COUNT_VALUE);
             int missingNumberIndex = RandomGenerator.getRandom(countNumbers);
             iterator[0] = question(firstNumber, stepOfProgression, countNumbers, missingNumberIndex);
             iterator[1] = Integer.toString(missingNumber(firstNumber, stepOfProgression, missingNumberIndex));
@@ -39,18 +42,12 @@ public class Progression {
 
     private static String question(int first, int step, int count, int missingIndex) {
         int[] progression = progressionGenerator(first, step, count);
-        StringBuilder question = new StringBuilder();
+        String[] progressionToString = new String[count];
         for (int i = 0; i < count; i++) {
-            if (i == missingIndex) {
-                question.append("..");
-            } else {
-                question.append(progression[i]);
-            }
-            if (i != count - 1) {
-                question.append(" ");
-            }
+            progressionToString[i] = Integer.toString(progression[i]);
         }
-        return question.toString();
+        progressionToString[missingIndex] = "..";
+        return String.join(" ", progressionToString);
     }
 
 }

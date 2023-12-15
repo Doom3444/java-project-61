@@ -1,10 +1,10 @@
-package hexlet.code.games;
+package hexlet.code;
 
 import java.util.Scanner;
 
 public class Engine {
 
-    public static final int MAX_TRIES_COEFFICIENT = 3;
+    public static final int MAX_TRIES = 3;
 
     public static final int QUESTION_AND_ANSWERS_COUNT = 2;
 

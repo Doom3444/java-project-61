@@ -1,4 +1,4 @@
-package hexlet.code.games;
+package hexlet.code.utils;
 
 public class RandomGenerator {
 
